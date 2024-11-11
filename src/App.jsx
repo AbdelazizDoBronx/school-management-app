@@ -5,6 +5,7 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import NotFound from './pages/NotFound';
+import Document from './pages/Document';
 import Schedule from './pages/Schedule';
 import Dashboard from './pages/Dashboard';
 import DocumentRequest from './pages/Documents';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/reports" element={<StudentReport />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/documents" element={<Document />} />
         </Routes>
       </Layout>
     </Router>
