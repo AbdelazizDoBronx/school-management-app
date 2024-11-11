@@ -1,17 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('daisyui'),
-  ],
-  daisyui: {
-    themes: ["light", "dark", "cupcake"],
-  },
-  darkMode: ['selector', '[data-theme="dark"]'],
-}
+	content: [
+	  "./index.html",
+	  "./src/**/*.{js,ts,jsx,tsx}",
+	],
+	theme: {
+	  extend: {},
+	},
+	plugins: [
+	  require('daisyui'),
+	],
+	daisyui: {
+	  themes: ["light", "dark", "cupcake"],
+	},
+	darkMode: ['selector', '[data-theme="dark"]'],
+  }

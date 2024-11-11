@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { markAllAsRead } from '../../features/notifications/notificationsSlice';
-import { Bell } from 'lucide-react';
+import { Bell, BellRingIcon } from 'lucide-react';
 
 const NotificationsMenu = () => {
   const notifications = useSelector((state) => state.notifications.notifications);
@@ -9,12 +9,12 @@ const NotificationsMenu = () => {
   return (
     <div className="dropdown dropdown-bottom dropdown-end indicator">
       {notifications.filter((n) => n.isUnread).length > 0 && (
-        <span className="indicator-item badge badge-secondary badge-sm">
+        <span className="indicator-item absolute top-3 right-4 w-fit badge badge-secondary badge-sm">
           {notifications.filter((n) => n.isUnread).length}
         </span>
       )}
       <button className="btn btn-ghost btn-circle">
-        <Bell className="w-5 h-5" />
+        <BellRingIcon className="w-5 h-5" />
       </button>
       <div className="dropdown-content card card-compact w-80 shadow-lg bg-base-100">
         <div className="card-body">
