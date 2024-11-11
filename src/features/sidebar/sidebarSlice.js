@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux slice for sidebar
 const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState: {
@@ -18,12 +19,13 @@ const sidebarSlice = createSlice({
         count: 24,
         badge: 'New',
       },
-      // {
-      //   label: 'Students',
-      //   icon: 'Users',
-      //   href: '/students',
-      //   count: 892,
-      // },
+      {
+        label: 'Quiz',
+        icon: 'BookOpenCheck',
+        href: '/quizlist',
+        count: 24,
+        badge: 'New', 
+      },
       {
         label: 'Schedule',
         icon: 'Calendar',
@@ -61,8 +63,15 @@ const sidebarSlice = createSlice({
         item.isActive = item.label === action.payload;
       });
     },
+    updateQuizBadge: (state, action) => {
+      const quizItem = state.items.find(item => item.label === 'Quiz');
+      if (quizItem) {
+        quizItem.badge = action.payload.badge;
+        quizItem.count = action.payload.count;
+      }
+    },
   },
 });
 
-export const { toggleSidebar, closeSidebar, activateItem } = sidebarSlice.actions;
+export const { toggleSidebar, closeSidebar, activateItem, updateQuizBadge } = sidebarSlice.actions;
 export default sidebarSlice.reducer;

@@ -5,22 +5,38 @@ import MenuItem from './MenuItem';
 const Sidebar = () => {
   const { isOpen } = useSelector((state) => state.sidebar);
   const { isMobile } = useSelector((state) => state.ui);
-
   const menuItems = useSelector((state) => state.sidebar.items);
+  
+  // Get quiz data from the Redux store
+  const AvailableQuizzes = useSelector((state) => state.quizzes.quizzes);
+  const quizCount = AvailableQuizzes.length;
+  const quizBadge = quizCount > 0 ? 'New' : '';
+
+  // Update menuItems dynamically
+  const updatedMenuItems = menuItems.map((item) => {
+    if (item.label === 'Quiz') {
+      // Update the quiz item with the dynamic badge and count
+      return {
+        ...item,
+        count: quizCount,
+        badge: quizBadge,
+      };
+    }
+    return item;
+  });
 
   return (
     <aside
       className={`fixed rounded-lg top-20 h-[calc(100vh-5.5rem)] bg-base-100 border-r border-base-200
           transition-all duration-300 z-30
           ${isOpen ? 'left-2' : '-left-64'}
-          ${isMobile ? 'w-64' : 'w-64 lg:left-2 lg:z-20'}
-          ${!isOpen && !isMobile ? 'lg:-left-64' : ''}`}
+          ${isMobile ? 'w-64' : 'w-64 lg:left-2 lg:z-20'}`}
     >
       <div className="h-full flex flex-col overflow-y-auto">
         {/* Menu Items */}
         <nav className="flex-1 px-4 py-6">
           <ul className="space-y-1">
-            {menuItems.map((item, index) =>
+            {updatedMenuItems.map((item, index) =>
               item.type === 'divider' ? (
                 <li key={`divider-${index}`} className="h-px bg-base-200 my-3" />
               ) : (

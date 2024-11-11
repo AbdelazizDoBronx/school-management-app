@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Layout from './layout/Layout';
 import Home from './pages/Home';
@@ -9,13 +9,26 @@ import Schedule from './pages/Schedule';
 import Dashboard from './pages/Dashboard';
 import DocumentRequest from './pages/Documents';
 import StudentReport from './pages/Report';
+import QuizList from './components/Quiz/QuizList';
+import QuizPage from './components/Quiz/QuizPage';
+import { fetchQuizzes } from "../src/features/Quiz/quizzesSlice";
 
 function App() {
   const theme = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.quizzes.status);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme.theme);
   }, [theme]);
+
+
+  // Fetch quizzes on component mount
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchQuizzes());
+    }
+  }, [dispatch, status]);
 
   return (
     <Router>
@@ -28,6 +41,8 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/reports" element={<StudentReport />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/quizlist" element={<QuizList />} />
+          <Route path="/quiz/:id" element={<QuizPage />} />
         </Routes>
       </Layout>
     </Router>
