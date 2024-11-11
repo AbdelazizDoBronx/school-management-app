@@ -41,6 +41,8 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/reports" element={<StudentReport />} />
+          <Route path="/quizlist" element={<QuizList />} />
+          <Route path="/quiz/:id" element={<QuizPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
