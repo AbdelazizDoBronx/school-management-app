@@ -18,12 +18,12 @@ const sidebarSlice = createSlice({
         count: 24,
         badge: 'New',
       },
-      {
-        label: 'Students',
-        icon: 'Users',
-        href: '/students',
-        count: 892,
-      },
+      // {
+      //   label: 'Students',
+      //   icon: 'Users',
+      //   href: '/students',
+      //   count: 892,
+      // },
       {
         label: 'Schedule',
         icon: 'Calendar',
@@ -40,7 +40,7 @@ const sidebarSlice = createSlice({
       {
         label: 'Document',
         icon: 'FileText',
-        href: '/documents',
+        href: '/request-document',
       },
       {
         label: 'Settings',

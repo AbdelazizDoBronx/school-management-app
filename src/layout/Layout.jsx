@@ -32,8 +32,9 @@ const Layout = ({ children }) => {
       <main
         className={`fixed top-20 right-2 p-2 bg-base-100 rounded-lg transition-all duration-300
         ${isMobile ? 'w-[calc(100vw-1rem)]' : 'w-[calc(100vw-17.5rem)]'}`}
+        style={{ height: 'calc(100vh - 5rem)', overflowY: 'auto' }}
       >
-        <div className="p-6">{children}</div>
+        <div className="p-6" style={{ overflowY: 'auto' }}>{children}</div>
       </main>
       {isMobile && isSidebarOpen && (
         <div className="fixed inset-0 bg-black/50 z-20" onClick={() => dispatch(closeSidebar)} />
