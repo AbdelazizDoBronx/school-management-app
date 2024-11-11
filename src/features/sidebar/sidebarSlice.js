@@ -38,7 +38,7 @@ const sidebarSlice = createSlice({
       },
       { type: 'divider' },
       {
-        label: 'Documents',
+        label: 'Document',
         icon: 'FileText',
         href: '/documents',
       },

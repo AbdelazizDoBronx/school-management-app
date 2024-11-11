@@ -5,6 +5,7 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import NotFound from './pages/NotFound';
+import Document from './pages/Document';
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/documents" element={<Document />} />
         </Routes>
       </Layout>
     </Router>

@@ -25,7 +25,7 @@ const MenuItem = ({ item }) => {
         to={item.href}
         className={`group flex items-center gap-x-3 px-3 py-2 rounded-lg
                     hover:bg-base-200 transition-colors
-                    ${item.isActive ? 'bg-primary text-primary-content hover:bg-primary/90' : ''}`}
+                    ${item.isActive ? 'bg-success text-white hover:bg-success/90' : ''}`}
         onClick={() => dispatch(activateItem(item.label))}
       >
         <IconComponent

@@ -32,7 +32,7 @@ const Navbar = () => {
 
               {/* Logo */}
               <a href="/" className="btn btn-ghost text-xl flex items-center gap-2">
-                <GraduationCap className="w-8 h-8 text-primary" />
+                <GraduationCap className="w-8 h-8 text-success" />
                 <span className="font-bold text-xl hidden sm:inline-block">OFPPT</span>
               </a>
             </div>
