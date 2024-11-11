@@ -25,6 +25,8 @@ const MenuItem = ({ item }) => {
       <Link
         to={item.href}
         className={`group flex items-center gap-x-3 px-3 py-2 rounded-lg
+                    hover:bg-base-200 transition-colors
+                    ${item.isActive ? 'bg-success text-white hover:bg-success/90' : ''}`}
                     hover:bg-z transition-colors
                     ${item.isActive ? 'bg-primary text-primary-content hover:bg-primary/90' : ''}`}
         onClick={() => dispatch(activateItem(item.label))}
