@@ -33,6 +33,7 @@ import {
   SecteursPage,
   SchedulerPage,
 } from '../pages';
+import QuizAnalyze from '../pages/Quizzes/QuizAnalyze';
 
 const RouteConfig = () => {
   return (
@@ -95,6 +96,14 @@ const RouteConfig = () => {
           element={
             <ProtectedRoute>
               <Quiz />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quizanalyze"
+          element={
+            <ProtectedRoute>
+              <QuizAnalyze />
             </ProtectedRoute>
           }
         />
